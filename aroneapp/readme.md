@@ -18,13 +18,25 @@ It uses Flask-Login for session management, Flask-WTF for form handling and CSRF
 
 ## Technologies Used
 
-- Python 3.x
-- Flask
-- Flask-Login
-- Flask-WTF
-- Flask-SQLAlchemy
-- Werkzeug for password hashing
-- python-dotenv for environment variable management
+-blinker
+-click
+-colorama
+-Flask
+-Flask-Login
+-Flask-SQLAlchemy
+-Flask-WTF
+-greenlet
+-gunicorn
+-itsdangerous
+-Jinja2
+-MarkupSafe
+-packaging
+-python-dotenv
+-SQLAlchemy
+-typing_extensions
+-Werkzeug
+-WTForms
+
 
 ---
 

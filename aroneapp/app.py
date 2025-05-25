@@ -62,11 +62,12 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
+            flash('login successful', 'success')
             return redirect(url_for('dashboard'))
         else:
             flash('login unsuccessfull')
 
-    return render_template('login.html', form=form)
+    return render_template('auth/login.html', form=form)
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -80,9 +81,10 @@ def register():
         fresh_user = User(username=form.username.data, password=hash_psw)
         db.session.add(fresh_user)
         db.session.commit()
+        flash('registration succefull, please login', 'success')
         return redirect(url_for("login"))
 
-    return render_template('register.html', form=form)
+    return render_template('auth/register.html', form=form)
 
 
 
@@ -95,13 +97,13 @@ def logout():
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("main/home.html")
 
 
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    return render_template("main/dashboard.html")
 
 
 if __name__== '__main__':

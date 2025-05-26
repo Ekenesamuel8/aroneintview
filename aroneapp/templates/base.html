@@ -9,18 +9,18 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand" href="{{ url_for('home') }}">aronetech</a>
+    <a class="navbar-brand" href="{{ url_for('main.home') }}">aronetech</a>
     <div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if current_user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
           {% if current_user.role == 'Admin' %}
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_panel') }}">Admin Panel</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.admin_panel') }}">Admin Panel</a></li>
           {% endif %}
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
         {% else %}
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
         {% endif %}
       </ul>
     </div>
